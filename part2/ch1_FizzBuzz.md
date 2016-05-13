@@ -7,6 +7,7 @@ FizzBuzz by FSharp
 ４：コンピュテーション式 (computation expression)
 ５：モナド (monad)
 ６：アクターモデル (actor model)
+７：async ( parallel )
 ```
 
 ####コード１（手続き型）Imperative
@@ -186,4 +187,29 @@ module main =
         | _ ->  printfn "%A" (string v)
     
     agent.Post Stop
+```
+
+#### code7 async ( parallel )
+```fhsarp
+module FizzBuzz_Parallel =
+
+    let fizzbuzz (n:int)  = async {
+
+        let (|Div|_|) by n = if n % by = 0 then Some Div else None
+
+        let fb = function
+            | Div 15 -> "FizzBuzz"
+            | Div  5 -> "Buzz"
+            | Div  3 -> "Fizz"
+            | n      -> string n
+
+        return System.Console.WriteLine("n: {0} ---> {1}", n , (fb n))
+
+        }
+
+    [1..15]
+    |> Seq.map fizzbuzz 
+    |> Async.Parallel 
+    |> Async.RunSynchronously
+    |> ignore
 ```
