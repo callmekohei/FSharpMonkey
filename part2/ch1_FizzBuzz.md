@@ -103,7 +103,6 @@ module FizzBuzz1 =
 ```
 
 ####コード５（モナドを使う）monad
-変更予定
 ```fsharp
 // author: @zecl
 // http://zecl.hatenablog.com/entry/20110711/p1
