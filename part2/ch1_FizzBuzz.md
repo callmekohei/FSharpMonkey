@@ -1,16 +1,16 @@
 FizzBuzz by FSharp
 ---
-```
-１：手続き型 (Imperative)
-２：関数型 (functional)
-３：オブジェクト指向 (Object-orientation)
-４：コンピュテーション式 (computation expression)
-５：モナド (monad)
-６：アクターモデル (actor model)
-７：async ( parallel )
+```text
+1: Inperative: 手続き型
+2: functional: 関数型
+3: object-orientation: オブジェクト指向
+4: comuttation expression: コンピュテーション式
+5: monad: モナド
+6: actor model: アクターモデル (actor model)
+7: async ( parallel )
 ```
 
-####コード１（手続き型）Imperative
+####code1 Imperative
 ```fsharp
 module fizzbuzz01 =
 
@@ -27,7 +27,7 @@ module fizzbuzz01 =
     for v in 1..100 do
         printfn "%A" ( fizzbuzz v )
 ```
-####コード２（関数型）functional
+####code2 functional
 ```fsharp
 module fizzbuzz02 =
 
@@ -42,7 +42,7 @@ module fizzbuzz02 =
     [1..100] |> List.map(fizzbuzz) |> printfn "%A"
 ```
 
-####コード３（オブジェクト指向）Object-orientation
+####code3 Object-orientation
 ```fsharp
 // author: @yukitos
 // https://gist.github.com/yukitos/06e4d825ccc33047ec8d
@@ -81,7 +81,7 @@ module fizzbuzz_yukitos =
     [1..100] |> List.map(fb.eval) |> printfn "%A"
 ```
 
-####コード４（コンピュテーション式をつかう）computation expression
+####code4 computation expression
 ```fsharp
 module FizzBuzz1 =
 
@@ -103,7 +103,7 @@ module FizzBuzz1 =
     fizzbuzz { let! x = [1..100] in return (x) } |> printfn "%A"
 ```
 
-####コード５（モナドを使う）monad
+####code5 monad
 ```fsharp
 // author: @zecl
 // http://zecl.hatenablog.com/entry/20110711/p1
@@ -139,7 +139,7 @@ module fizzbuzz_monad =
 
 ```
 
-####コード６（アクターモデル）actor model
+####code6 actor model
 ```fsharp
 module FizzBuzz_used_agent =
     
@@ -190,7 +190,7 @@ module main =
 ```
 
 #### code7 async ( parallel )
-```fhsarp
+```fsharp
 module FizzBuzz_Parallel =
 
     let fizzbuzz (n:int)  = async {

@@ -117,7 +117,7 @@ example for `char`
       option <Char>     Some ‘a'
 ```
 
-####Patern match
+####Pattern match
 ```fsharp
 let f x =
     match x with
