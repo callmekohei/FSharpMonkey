@@ -29,4 +29,4 @@ ch3 Parser ( CSV, HTML, XML )
 
 License
 ---
-This software is released under the MIT License.
+This documents is released under the creativecommons License.
