@@ -20,9 +20,9 @@ ch3 function and class
 ```
 ####part2
 ```
-ch1 
-ch2
-ch3
+ch1 FizzBuzz
+ch2 Converter
+ch3 Parser ( CSV, HTML, XML )
 ```
 
 License
