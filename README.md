@@ -14,8 +14,8 @@ Contents
 ---
 ####part1
 ```
-ch1 basic ( pipe, printfn and comment )
-ch2 data
+[ch1 basic ( pipe, printfn and comment )](./part1/ch1_Basic3.md)
+[ch2 data](./part1/ch2_data.md)
 ch3 function and class
 ```
 ####part2
