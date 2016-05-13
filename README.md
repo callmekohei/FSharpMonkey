@@ -1,18 +1,24 @@
 FSharpMonkey
 ---
 ```
-このドキュメントは`F#`の初学者（特に自分）に向けたものです。  
-もっというと`callmekohei`の`F#`の知識を整理したものです。
+The documents for F# beginner!( mainly me! )
+
+このドキュメントはF#の初学者（特に自分）に向けたものです。
 ```
 
 ####Policy
 ```
+I write these document with pleasure.
+
 ゆっくりと気の向くまま書いていきます。
 ```
 
 ####caution
 ```
-もしかしたらこのドキュメントには間違った記述等が含まれているかもしれません。  
+This documents may have any mistakes.
+If you notice it, plese tell me.
+
+もしかしたらこのドキュメントには間違った記述等が含まれているかもしれません。
 そういった間違いを見つけた場合はご指摘頂けると嬉しいです。
 ```
 
