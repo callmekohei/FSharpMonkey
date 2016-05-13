@@ -105,26 +105,38 @@ module FizzBuzz1 =
 ####コード５（モナドを使う）monad
 変更予定
 ```fsharp
-// author: @zecl x @callmekohei x @gab_km
+// author: @zecl
 // http://zecl.hatenablog.com/entry/20110711/p1
-module FizzBuzz2 =
-
+module fizzbuzz_monad =
+    
     type M<'T> = M of 'T 
 
-    type MonadBuilder () =
-        member this.Return x = M x
+    let inline (>>=) (M x) f : M<'U> = f x
+    let mreturn x : M<'T> = M x
 
-    let m = new MonadBuilder()
+    type MonadBuilder () =
+        member this.Return (x) = mreturn x
+        member this.Bind (m,f) = m >>= f
+
+    let m = MonadBuilder ()
 
     let fizz = function
-    | x when x % 3 = 0 -> m { return x,"Fizz" }
-    | x -> m { return x,"" }
+        | x when x % 3 = 0 -> m { return x,"Fizz" }
+        | x -> m { return x,"" }
 
     let buzz = function
-    | M (x,s) when x % 5 = 0 -> m { return x, s + "Buzz" }
-    | M (x,s) -> m { return x,s }
+        | x,s when x % 5 = 0 -> m { return x, s + "Buzz" }
+        | x,s -> m { return x,s }
 
-    [1..100] |> List.map (fizz) |> List.map (buzz) |> printfn "%A"
+    let printFB  = function 
+        | M(x,"") -> printfn "%A" x
+        | M(_,y)  -> printfn "%s" y
+
+    let fizzbuzz = Seq.iter (fun x -> (fizz x >>= buzz) |> printFB)
+
+    [1..100] |> fizzbuzz
+    System.Console.ReadLine () |> ignore
+
 ```
 
 ####コード６（アクターモデル）actor model

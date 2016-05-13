@@ -13,7 +13,7 @@ I write these document with pleasure.
 ゆっくりと気の向くまま書いていきます。
 ```
 
-####caution
+####Caution
 ```
 This documents may have any mistakes.
 If you notice it, plese tell me.
@@ -31,7 +31,9 @@ ch3 function and class
 ####part2
 [ch1 FizzBuzz](./part2/ch1_FizzBuzz.md)  
 ch2 Converter  
-ch3 Parser ( CSV, HTML, XML )  
+[ch3 Parser ( CSV )](./part2/ch3_Parser_CSV.md)  
+ch4 Parser ( HTML )  
+ch5 Parser ( XML )  
 
 License
 ---
