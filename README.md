@@ -4,7 +4,7 @@ The documents for FSharp beginner.
 This documents may have any mistakes. 
 If you notice it, plese tell me.  
 
-contact `twitter: @callmekohei`
+twitter: `@callmekohei`
 
 このドキュメントはFSharpの初学者（特に自分）に向けたものです。
 ゆっくりと気の向くまま書いていきます。
