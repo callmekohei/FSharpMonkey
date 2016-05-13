@@ -1,8 +1,7 @@
 FSharpMonkey
 ---
-The documents for FSharp beginner!( mainly for me! ).
-I write these document with pleasure.
-This documents may have any mistakes.
+The documents for FSharp beginner. 
+This documents may have any mistakes. 
 If you notice it, plese tell me.
 
 このドキュメントはFSharpの初学者（特に自分）に向けたものです。
