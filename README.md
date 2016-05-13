@@ -23,7 +23,7 @@ Contents
 [ch2 data](./part1/ch2_data.md)  
 ch3 function and class  
 ####part2
-ch1 FizzBuzz  
+[ch1 FizzBuzz](./part2/ch1_FizzBuzz.md)  
 ch2 Converter  
 ch3 Parser ( CSV, HTML, XML )  
 
