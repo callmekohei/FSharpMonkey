@@ -15,7 +15,7 @@ Chapter2 Data
 // https://www.google.co.jp
 ```
 
-carage return in string
+`\` carage return in string
 ```
  "ABC\
   DEF\
@@ -33,6 +33,34 @@ carage return in string
 1.3 + 2.4
 |> printfn "%f"
 // 3.700000
+```
+
+####Option ( takes Some or None )
+```fsharp
+Some "ABC" |> printfn "%A"
+// Some "ABC"
+
+None |> printfn "%A"
+// <null>
+```
+
+####DU
+DU ( has separated data )
+```fsharp
+type Gender = Male | Female | Otokonoko
+let myGender = Male |> printfn "%A"
+// Male
+```
+
+####tuple and record
+```fsharp
+// tuple
+(1,2)     ||>  printfn "%d %d"      // 1 2
+
+// record
+type I = {Name : string; Age: int}
+{Name = "kohei"; Age = 28}.Name|> printfn "%s"
+// kohei
 ```
 
 ####Collection 5
@@ -71,35 +99,9 @@ Set ( unique value )
 Set [1..10] |> printfn "%A"
 // set [1; 2; 3; 4; 5; 6; 7; 8; 9; ...] 
 ```
-
-####Option ( takes Some or None )
-```fsharp
-Some "ABC" |> printfn "%A"
-// Some "ABC"
-
-None |> printfn "%A"
-// <null>
-```
-
-####DU
-DU is familiar with Set data.
-```fsharp
-type Gender = Male | Female | Otokonoko
-let myGender = Male |> printfn "%A"
-// Male
-```
-
-####tuple and record
-```fsharp
-// tuple
-(1,2)     ||>  printfn "%d %d"      // 1 2
-
-// record
-type I = {Name : string; Age: int}
-{Name = "kohei"; Age = 28}.Name|> printfn "%s"
-// kohei
-```
-
+.  
+.  
+.  
 ####Expression
 example for `char`
 ```
