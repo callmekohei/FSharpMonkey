@@ -76,7 +76,7 @@ arr
 Function Type における Signature
 ---
 たとえば`List.map`の`syntax`は下記のようになってます。
-```text
+```fsharp
 // Signature:
 List.map : ('T -> 'U) -> 'T list -> 'U list
 

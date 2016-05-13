@@ -1,5 +1,8 @@
-こんにちは世界
+F# tutorial
 ---
+こちらのページがすごくいい感じです。  
+http://dungpa.github.io/fsharp-cheatsheet/
+
 ```fsharp
 "Hello, World!" 
 |> printfn "%s"
