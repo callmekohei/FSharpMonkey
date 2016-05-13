@@ -9,9 +9,8 @@ FizzBuzz by FSharp
 ６：アクターモデル (actor model)
 ```
 
-コード１（手続き型）Imperative
----
-```
+####コード１（手続き型）Imperative
+```fsharp
 module fizzbuzz01 =
 
     let fizzbuzz n =
@@ -27,9 +26,8 @@ module fizzbuzz01 =
     for v in 1..100 do
         printfn "%A" ( fizzbuzz v )
 ```
-コード２（関数型）functional
----
-```
+####コード２（関数型）functional
+```fsharp
 module fizzbuzz02 =
 
     let (|Div|_|) by n = if n % by = 0 then Some Div else None
@@ -43,9 +41,8 @@ module fizzbuzz02 =
     [1..100] |> List.map(fizzbuzz) |> printfn "%A"
 ```
 
-コード３（オブジェクト指向）Object-orientation
----
-```
+####コード３（オブジェクト指向）Object-orientation
+```fsharp
 // author: @yukitos
 // https://gist.github.com/yukitos/06e4d825ccc33047ec8d
 module fizzbuzz_yukitos =
@@ -83,9 +80,8 @@ module fizzbuzz_yukitos =
     [1..100] |> List.map(fb.eval) |> printfn "%A"
 ```
 
-コード４（コンピュテーション式をつかう）computation expression
----
-```
+####コード４（コンピュテーション式をつかう）computation expression
+```fsharp
 module FizzBuzz1 =
 
     type fizzbuzzBuilder () =
@@ -106,10 +102,9 @@ module FizzBuzz1 =
     fizzbuzz { let! x = [1..100] in return (x) } |> printfn "%A"
 ```
 
-コード５（モナドを使う）monad
----
+####コード５（モナドを使う）monad
 変更予定
-```
+```fsharp
 // author: @zecl x @callmekohei x @gab_km
 // http://zecl.hatenablog.com/entry/20110711/p1
 module FizzBuzz2 =
@@ -132,9 +127,8 @@ module FizzBuzz2 =
     [1..100] |> List.map (fizz) |> List.map (buzz) |> printfn "%A"
 ```
 
-コード６（アクターモデル）actor model
----
-```
+####コード６（アクターモデル）actor model
+```fsharp
 module FizzBuzz_used_agent =
     
     type msg = Cont of string | Stop | Fetch of AsyncReplyChannel<string>

@@ -58,7 +58,7 @@ List and seq
 // [1; 2; 3; 4; 5]
 
 seq {1..5} |> printfn "%A"
-seq [1; 2; 3; 4; ...]
+// seq [1; 2; 3; 4; ...]
 ```
 Map ( is list of tuple )
 ```fsharp
