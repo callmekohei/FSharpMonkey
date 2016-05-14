@@ -14,7 +14,7 @@ If you notice it, plese tell me. ( twitter: `@callmekohei` )
 Contents
 ---
 ####Part1 Cheat Sheets
-[ch1 basic ( pipe, printfn and comment )](./part1/ch1_Basic.md)  
+[ch1 basic](./part1/ch1_Basic.md)  
 [ch2 data](./part1/ch2_data.md)  
 ch3 function and class  
 [ch4 computation](./part1/ch4_computation.md)  
