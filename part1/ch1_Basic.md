@@ -1,5 +1,5 @@
 
-Chapter1  Basic 3
+Chapter1  Basic
 ---
 ####Pipe
 ```fsharp
@@ -31,3 +31,23 @@ true  |> printfn "%b" // true   b is bool.
 // line comment
 ```
 
+####Bind
+`=` shows bind
+```fsharp
+let letters = "Hello, World!"
+
+letters |> printfn "%A"
+// Hello, World!
+```
+
+####Asign
+`<-` shows asign
+```fsharp
+let mutable letters = "hello"
+
+letters |> printfn "%A" // "hello"
+
+letters <- "World!"
+
+letters |> printfn "%A" // "World!"
+```
