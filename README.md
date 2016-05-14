@@ -24,7 +24,7 @@ ch5 async
 [ch1 FizzBuzz](./part2/ch1_FizzBuzz.md)  
 [ch2 Converter](./part2/ch2_Converter.md)  
 [ch3 Parser ( CSV )](./part2/ch3_Parser_CSV.md)  
-ch4 Parser ( HTML )  
+[ch4 Parser ( HTML )](./part2/ch4_Parser_HTML.md)  
 [ch5 Parser ( XML )](./part2/ch5_Parser_XML.md)  
 
 License
