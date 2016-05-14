@@ -1,13 +1,11 @@
 ####Load and Parse
 Load form file  
 ```fsharp
-// example Load
 let filePath = @"./test.xml"
 let xDoc = XDocument.Load filePath
 ```
 Parse against Strings  
-```
-// example Parse
+```fsharp
 let url =  "http://rss.weather.yahoo.co.jp/rss/days/8210.xml"
 let xDoc = XDocument.Parse ( Http.RequestString ( url ) )
 ```
