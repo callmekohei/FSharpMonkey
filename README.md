@@ -2,9 +2,7 @@ FSharpMonkey
 ---
 The documents for FSharp beginner. 
 This documents may have any mistakes. 
-If you notice it, plese tell me.  
-
-twitter: `@callmekohei`
+If you notice it, plese tell me. ( twitter: `@callmekohei` )  
 
 このドキュメントはFSharpの初学者（特に自分）に向けたものです。
 ゆっくりと気の向くまま書いていきます。
@@ -25,7 +23,7 @@ ch5 async
 [ch2 Converter](./part2/ch2_Converter.md)  
 [ch3 Parser ( CSV )](./part2/ch3_Parser_CSV.md)  
 ch4 Parser ( HTML )  
-ch5 Parser ( XML )  
+[ch5 Parser ( XML )](./part2/ch5_Parser_XML.md)  
 
 License
 ---
