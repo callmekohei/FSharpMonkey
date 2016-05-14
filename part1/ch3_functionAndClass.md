@@ -8,12 +8,15 @@ let say3 word = (word, word, word)
 
 ####Class
 `:>` shows upcast.
+Embody( method call ) needs upcast to interface class.
 ```fsharp
 module Test_class =
 
+    // difine
     type IAnimal  =
         abstract member voice : unit -> string
-
+    
+    // impliment
     type Dog () =
         interface IAnimal with
             member this.voice ()  = "bow! bow!"
@@ -21,12 +24,11 @@ module Test_class =
     type Cat () =
         interface IAnimal with
             member this.voice () = "mew! mew!"
-
-    let poti = ( new Dog() :> IAnimal )
-    poti.voice () |> printfn "%A"
+    
+    // embody ( call )
+    ( new Dog() :> IAnimal ).voice () |> printfn "%A"
     // "bow! bow!"
 
-    let tama = ( new Cat() :> IAnimal )
-    tama.voice () |> printfn "%A"
+    ( new Cat() :> IAnimal ).voice () |> printfn "%A"
     // "mew! mew!"
 ```
