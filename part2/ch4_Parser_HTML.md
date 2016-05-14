@@ -20,15 +20,15 @@ module Test =
 use htmlDoc = Http.RequestString url
 
 let url = "http://www.aozora.gr.jp/index_pages/person81.html"
-    let text = Http.RequestString (
-                    url
-                    , headers = [ UserAgent
-                       "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_4)
-                        AppleWebKit/537.36 (KHTML, like Gecko)
-                        Chrome/49.0.2623.87 Safari/537.36" ]
-                    , responseEncodingOverride = "utf-8" )
+let text = Http.RequestString (
+                url
+                , headers = [ UserAgent
+                    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_4)
+                    AppleWebKit/537.36 (KHTML, like Gecko)
+                    Chrome/49.0.2623.87 Safari/537.36" ]
+                , responseEncodingOverride = "utf-8" )
 
-    let htmlDoc = HtmlDocument.Parse text
+let htmlDoc = HtmlDocument.Parse text
 ```
 
 ####fetch as `seq<HtmlNode>`
