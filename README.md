@@ -20,7 +20,6 @@ Contents
 [ch4 Function](./part1/ch4_function.md)  
 
 ####Part2 Basic2
----
 [ch1 Converter](./part2/ch2_Converter.md)  
 ch2 String  
 ch3 Collection  
