@@ -55,6 +55,7 @@ let rec say word i =
 
 ####Active pattern
 ```fsharp
+// http://luketopia.net/2014/09/11/interesting-active-patterns/
 let (|NonEmptyString|) value =
     if System.String.IsNullOrEmpty value
     then failwith "String must be non-empty."
