@@ -1,5 +1,5 @@
 
-Chapter1  Basic
+Basic 3
 ---
 ####Pipe
 ```fsharp
@@ -30,6 +30,8 @@ true  |> printfn "%b" // true   b is bool.
 ```
 .  
 .  
+Constant, variable and container
+---
 ####Bind
 `=` shows bind
 ```fsharp
@@ -62,4 +64,47 @@ x:= "world"
 
 !x |> printfn "%A" // "world"
 ```
+.  
+.  
+Loop 2
+---
+####for
+```fsharp
+for c in "ABC" do
+    c |> printfn "%A"
 
+// 'A' 'B' 'C'
+```
+####while
+```fsharp
+let mutable i = 0
+let str = "ABC"
+while str.Length > i do
+    str.[i] |> printfn "%A"
+    i <- i + 1
+
+// 'A' 'B' 'C'
+```
+.  
+.  
+Brunch 2
+---
+####if
+```fsharp
+let brunch1 x =
+    if x = 1 then
+        "hello"
+    else
+        "world"
+
+1 |> brunch1 |> printfn "%A" // "hello"
+```
+####match 
+```fsharp
+let brunch2 x =
+    match x with
+    | 1  -> "hello"
+    | _  -> "world"
+
+1 |> brunch2 |> printfn "%A" // "hello"
+```
