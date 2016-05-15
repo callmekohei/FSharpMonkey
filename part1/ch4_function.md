@@ -52,3 +52,16 @@ let rec say word i =
 [1;2;3] |> List.map ( fun n -> n * 2 ) |> printfn "%A"
 // [2; 4; 6]
 ```
+
+####Active pattern
+```fsharp
+let (|NonEmptyString|) value =
+    if System.String.IsNullOrEmpty value
+    then failwith "String must be non-empty."
+    else value
+
+let sayHello (NonEmptyString name) =
+    printfn "Hello, %s." name
+
+sayHello "callmekohei" // Hello, callmekohei.
+```
