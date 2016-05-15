@@ -20,18 +20,18 @@ Contents
 [ch4 Function](./part1/ch4_function.md)  
 
 ####Part2 Basic2
-[ch1 Converter](./part2/ch2_Converter.md)  
+[ch1 Converter](./part2/ch1_Converter.md)  
 ch2 String  
 ch3 Collection  
-ch4 Active pattern  
+[ch4 Active pattern](./part2/ch2_ActivePattern.md)  
 [ch5 computation](./part1/ch5_computation.md)  
 ch6 async  
 
 ####Part3 Recipe
-[ch1 FizzBuzz](./part2/ch1_FizzBuzz.md)  
-[ch2 Parser ( CSV )](./part2/ch3_Parser_CSV.md)  
-[ch3 Parser ( HTML )](./part2/ch4_Parser_HTML.md)  
-[ch4 Parser ( XML )](./part2/ch5_Parser_XML.md)  
+[ch1 FizzBuzz](./part3/ch1_FizzBuzz.md)  
+[ch2 Parser ( CSV )](./part3/ch3_Parser_CSV.md)  
+[ch3 Parser ( HTML )](./part3/ch4_Parser_HTML.md)  
+[ch4 Parser ( XML )](./part3/ch5_Parser_XML.md)  
 
 License
 ---
