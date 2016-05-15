@@ -115,37 +115,4 @@ Set ( has unique value )
 Set [1..10] |> printfn "%A"
 // set [1; 2; 3; 4; 5; 6; 7; 8; 9; ...] 
 ```
-.  
-.  
-.  
-####Expression
-example for `char`
-```
-      Type name         Value or Express
-      --------------    ----------------
-      Char              ‘a'
-      Char * int        (‘a’, 7)
-      list <Char>       [‘a’]
-      Char []           [|’a’|]
-      seq  <Char>       seq [‘a’]
-      Set  <Char>       Set [‘a’]
-      Map  <Char,int>   Map [(‘a’,7)]
-      option <Char>     Some ‘a'
-```
 
-####Pattern match
-```fsharp
-let f x =
-    match x with
-    | 1 -> "one"
-    | 2 -> "two"
-    | _ -> "more"
-
-for i in 1..4 do
-    (i, f i) ||> printfn "%d:  %s"
-
-// 1:  one
-// 2:  two
-// 3:  more
-// 4:  more
-```
