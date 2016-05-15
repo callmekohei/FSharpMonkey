@@ -17,7 +17,7 @@ Contents
 [ch1 basic](./part1/ch1_Basic.md)  
 [ch2 data](./part1/ch2_data.md)  
 [ch3 class](./part1/ch3_class.md)  
-ch4 function  
+[ch4 function](./part1/ch4_function.md)  
 [ch5 computation](./part1/ch5_computation.md)  
 ch6 async  
 
