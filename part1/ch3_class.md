@@ -1,7 +1,6 @@
 
 ####Hierarchy of class
 ```text
-System.Object
 . System
 ├── Object
      ├── String
@@ -50,9 +49,9 @@ module Example_interface =
     ( new Cat() :> IAnimal ).voice () |> printfn "%A" // "mew! mew!"
 ```
 
-####Inferiatnce
+####Inheriatnce
 ```fsharp
-module Example_Inferitance =
+module Example_Inheritance =
 
     // base class
     type Animal () =
