@@ -51,6 +51,12 @@ string 'a'
 
 // ['a'; 'b'; 'c']
 
+"abc".ToCharArray () 
+|> Array.toList
+|> printfn "%A"
+
+// ['a'; 'b'; 'c']
+
 ['a';'b';'c']
 |> List.toArray
 |> System.String.Concat
