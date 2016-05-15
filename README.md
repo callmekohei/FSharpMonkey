@@ -19,7 +19,7 @@ Contents
 [ch3 class](./part1/ch3_class.md)  
 ch4 function  
 [ch5 computation](./part1/ch5_computation.md)  
-ch5 async  
+ch6 async  
 
 ####Part2 Recipe
 [ch1 FizzBuzz](./part2/ch1_FizzBuzz.md)  
