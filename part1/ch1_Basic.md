@@ -91,20 +91,20 @@ Brunch 2
 ---
 ####if
 ```fsharp
-let brunch1 x =
+let brunch x =
     if x = 1 then
         "hello"
     else
         "world"
 
-1 |> brunch1 |> printfn "%A" // "hello"
+1 |> brunch |> printfn "%A" // "hello"
 ```
 ####match 
 ```fsharp
-let brunch2 x =
+let brunch x =
     match x with
     | 1  -> "hello"
     | _  -> "world"
 
-1 |> brunch2 |> printfn "%A" // "hello"
+1 |> brunch |> printfn "%A" // "hello"
 ```
