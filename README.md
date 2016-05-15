@@ -13,26 +13,26 @@ If you notice it, plese tell me. ( twitter: `@callmekohei` )
 
 Contents
 ---
-####Part1 Cheat Sheets
-[ch1 basic](./part1/ch1_Basic.md)  
-[ch2 data](./part1/ch2_data.md)  
-[ch3 class](./part1/ch3_class.md)  
-[ch4 function](./part1/ch4_function.md)  
-.  
-ch5 collection  
-ch6 active pattern  
-[ch7 computation](./part1/ch5_computation.md)  
-ch8 async  
+####Part1 Basic1
+[ch1 Basic](./part1/ch1_Basic.md)  
+[ch2 Data](./part1/ch2_data.md)  
+[ch3 Class](./part1/ch3_class.md)  
+[ch4 Function](./part1/ch4_function.md)  
 
-####Part2 Recipe
+####Part2 Basic2
+---
+[ch1 Converter](./part2/ch2_Converter.md)  
+ch2 String  
+ch3 Collection  
+ch4 Active pattern  
+[ch5 computation](./part1/ch5_computation.md)  
+ch6 async  
+
+####Part3 Recipe
 [ch1 FizzBuzz](./part2/ch1_FizzBuzz.md)  
-[ch2 Converter](./part2/ch2_Converter.md)  
-[ch3 Parser ( CSV )](./part2/ch3_Parser_CSV.md)  
-[ch4 Parser ( HTML )](./part2/ch4_Parser_HTML.md)  
-[ch5 Parser ( XML )](./part2/ch5_Parser_XML.md)  
-
-####plan
-String
+[ch2 Parser ( CSV )](./part2/ch3_Parser_CSV.md)  
+[ch3 Parser ( HTML )](./part2/ch4_Parser_HTML.md)  
+[ch4 Parser ( XML )](./part2/ch5_Parser_XML.md)  
 
 License
 ---
