@@ -18,8 +18,11 @@ Contents
 [ch2 data](./part1/ch2_data.md)  
 [ch3 class](./part1/ch3_class.md)  
 [ch4 function](./part1/ch4_function.md)  
-[ch5 computation](./part1/ch5_computation.md)  
-ch6 async  
+.  
+ch5 collection  
+ch6 active pattern  
+[ch7 computation](./part1/ch5_computation.md)  
+ch8 async  
 
 ####Part2 Recipe
 [ch1 FizzBuzz](./part2/ch1_FizzBuzz.md)  
