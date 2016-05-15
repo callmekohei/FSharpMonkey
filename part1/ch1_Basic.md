@@ -1,5 +1,5 @@
 
-Basic 3
+Basic
 ---
 ####Pipe
 ```fsharp
@@ -66,7 +66,7 @@ x:= "world"
 ```
 .  
 .  
-Loop 2
+Loop
 ---
 ####for
 ```fsharp
@@ -87,7 +87,7 @@ while str.Length > i do
 ```
 .  
 .  
-Brunch 2
+Brunch
 ---
 ####if
 ```fsharp
