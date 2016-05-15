@@ -16,8 +16,9 @@ Contents
 ####Part1 Cheat Sheets
 [ch1 basic](./part1/ch1_Basic.md)  
 [ch2 data](./part1/ch2_data.md)  
-[ch3 function and class](./part1/ch3_functionAndClass.md)  
-[ch4 computation](./part1/ch4_computation.md)  
+[ch3 class](./part1/ch3_class.md)  
+ch4 function  
+[ch5 computation](./part1/ch5_computation.md)  
 ch5 async  
 
 ####Part2 Recipe
