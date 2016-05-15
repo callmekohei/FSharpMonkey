@@ -8,8 +8,6 @@ printfn "%s" "ABC"
     is
 
 "ABC" |> printfn "%s"
-
-
 ```
 
 ####Printfn  
@@ -30,7 +28,8 @@ true  |> printfn "%b" // true   b is bool.
 
 // line comment
 ```
-
+.  
+.  
 ####Bind
 `=` shows bind
 ```fsharp
@@ -51,3 +50,16 @@ letters <- "World!"
 
 letters |> printfn "%A" // "World!"
 ```
+
+####Reference
+`x` is container.  
+```fsharp
+let x = ref "hello"
+
+!x |> printfn "%A" // "hello"
+
+x:= "world"
+
+!x |> printfn "%A" // "world"
+```
+

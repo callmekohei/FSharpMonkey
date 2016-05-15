@@ -28,6 +28,9 @@ ch6 async
 [ch4 Parser ( HTML )](./part2/ch4_Parser_HTML.md)  
 [ch5 Parser ( XML )](./part2/ch5_Parser_XML.md)  
 
+####plan
+String
+
 License
 ---
 This documents is released under the creativecommons License.
