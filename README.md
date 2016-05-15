@@ -21,7 +21,7 @@ Contents
 
 ####Part2 Basic2
 [ch1 Converter](./part2/ch1_Converter.md)  
-ch2 String  
+[ch2 String](./part2/ch2_String.md)  
 ch3 Collection  
 [ch4 Active pattern](./part2/ch2_ActivePattern.md)  
 [ch5 computation](./part1/ch5_computation.md)  
