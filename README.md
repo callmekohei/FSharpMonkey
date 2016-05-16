@@ -1,8 +1,7 @@
 FSharpMonkey
 ---
 The documents for FSharp beginner.  
-This documents may have any mistakes.  
-If you notice it, plese tell me. ( twitter: `@callmekohei` )  
+If you notice any mistakes, plese tell me. ( twitter: `@callmekohei` )  
 
 ```text
 このドキュメントはFSharpの初学者（特に自分）に向けたものです。
