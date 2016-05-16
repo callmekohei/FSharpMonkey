@@ -32,7 +32,7 @@ module Test_String =
 
 ```
 
-####String Method 2 ( .NET Framework library)
+####String Method ( .NET Framework library)
 ```fsharp
 let str:string = "Call-Me-Kohei"
 
