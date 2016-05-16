@@ -1,11 +1,3 @@
-####Pickup numbers
-```fsharp
-"abc123def"
-|> String.filter System.Char.IsDigit
-|> printfn "%A"
-// "123"
-```
-
 ####sort
 ```fsharp
 [ "963"; "1"; "1066"; "1065" ]
@@ -14,7 +6,33 @@
 // seq ["1"; "963"; "1065"; "1066"]
 ```
 
-####String Method
+####String Method1 ( Microsoft.FSharp.Core.String )
+```fsharp
+module Test_String =
+
+    let str = "callmekohei123"
+
+    String.init 10 ( fun n -> string (n % 2) )                 |> printfn "%A" // "0101010101"
+    String.replicate 5 "---"                                   |> printfn "%A" // "---------------"
+
+    str |> String.length                                       |> printfn "%A" // 14
+    str |> String.exists ( fun s -> s = 'm' )                  |> printfn "%A" // true
+    str |> String.forall ( fun x -> System.Char.IsDigit x )    |> printfn "%A" // false
+
+    str |> String.collect ( fun c -> string c + "-" )          |> printfn "%A" // "c-a-l-l-m-e-k-o-h-e-i-"
+
+    ["call";"me";"kohei"]  |> String.concat "-"                |> printfn "%A" // "call-me-kohei"
+
+    str |> String.filter System.Char.IsDigit                   |> printfn "%A" // "123"
+    str |> String.map System.Char.ToUpper                      |> printfn "%A" // str
+    str |> String.mapi ( fun i c -> if i < 4 then c else '*' ) |> printfn "%A" // "call*******"
+
+    str |> String.iter  ( printfn "%A" )
+    str |> String.iteri ( printfn "%A %A" )
+
+```
+
+####String Method 2 ( .NET Framework library)
 ```fsharp
 let str:string = "Call-Me-Kohei"
 
