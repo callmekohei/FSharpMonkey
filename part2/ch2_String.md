@@ -6,7 +6,7 @@
 // seq ["1"; "963"; "1065"; "1066"]
 ```
 
-####String Method1 ( Microsoft.FSharp.Core.String )
+####String function ( Microsoft.FSharp.Core.String )
 ```fsharp
 module Test_String =
 
@@ -24,7 +24,7 @@ module Test_String =
     ["call";"me";"kohei"]  |> String.concat "-"                |> printfn "%A" // "call-me-kohei"
 
     str |> String.filter System.Char.IsDigit                   |> printfn "%A" // "123"
-    str |> String.map System.Char.ToUpper                      |> printfn "%A" // str
+    str |> String.map System.Char.ToUpper                      |> printfn "%A" // "CALLMEKOHEI123"
     str |> String.mapi ( fun i c -> if i < 4 then c else '*' ) |> printfn "%A" // "call*******"
 
     str |> String.iter  ( printfn "%A" )
