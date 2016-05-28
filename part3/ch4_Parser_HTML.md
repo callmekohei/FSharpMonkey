@@ -1,7 +1,6 @@
 ####Fetch data
 System.Net
 ```fsharp
-//System.net
 module Test =
 
     let url = @"http://www.gutenberg.org/files/84/84.txt"
@@ -81,7 +80,9 @@ get target - tag
 ```fsharp
 let targetTag = 
     HTML 
-    |> HtmlDocument.descendants false ( element "div" "chat-item__content" ) |> Seq.exactlyOne
+    |> HtmlDocument.descendants false ( element "div" "chat-item__content" ) 
+    |> Seq.exactlyOne
+
 targetTag |> printfn "%A"
 ```
 result
