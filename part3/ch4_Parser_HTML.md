@@ -1,6 +1,7 @@
-####when you cannot fetch data
-use `System.Net`
+####Fetch data
+System.Net
 ```fsharp
+//System.net
 module Test =
 
     let url = @"http://www.gutenberg.org/files/84/84.txt"
@@ -14,11 +15,8 @@ module Test =
 
     url |> getHtml |> printfn "%A"
 ```
-
-####fetch as Strings
+Http.RequestString
 ```fsharp
-use htmlDoc = Http.RequestString url
-
 let url = "http://www.aozora.gr.jp/index_pages/person81.html"
 let text = Http.RequestString (
                 url
@@ -30,68 +28,109 @@ let text = Http.RequestString (
 
 let htmlDoc = HtmlDocument.Parse text
 ```
+---
 
-####fetch as `seq<HtmlNode>`
-```
-use htmlNode = HtmlDocument.Load  ( url )
-use htmlNode = HtmlDocument.Parse ( strings )
+####Parse
+
+HTML
+```html
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>HTML-Title</title>
+    </head>
+    <body>
+
+        <div class="test"></div>
+
+        <div class="chat-item__content">
+            <div class="chat-item__details">
+                <div class="chat-item__from js-chat-item-from">callmekohei</div>
+                <div class="chat-item__username js-chat-item-from">@callmekohei</div>
+                <a class="chat-item__time js-chat-time" href="https://gitter.im/fsugjp/public?at=574842e5454cb2be094f813c">2016/05/26</a>
+            </div>
+            <div class="chat-item__text js-chat-item-text">Hello, world</div>
+        </div>
+
+    </body>
+</html>
 ```
 .  
 .  
-
-####titleタグ
-```fsharp
-htmlDoc.Descendants ["title"] |> printfn "%A"
-// seq [<title>サンプル</title>]
-
-htmlDoc.Descendants ["title"]
-|> Seq.map (fun xe -> xe.InnerText() )
-|> printfn "%A"
-// seq ["サンプル"]
+Library
 ```
-
-####meta タグ
-```fsharp
-htmlDoc.Descendants ["meta"] |> printfn "%A"
-// seq [<meta charset="UTF-8" />]
-
-let charset =
-    htmlDoc.Descendants ["meta"]
-    |> Seq.choose (fun x ->
-        x.TryGetAttribute("charset")
-        |> Option.map (fun a -> x.InnerText(), a.Value()    )
-    )
-// seq [("", "UTF-8")]
-```
-####ul タグ
-```fsharp
-#r @"./packages/FSharp.Data/lib/net40/FSharp.Data.dll"
 open FSharp.Data
-open System
-
-module Test =
-
-    let htmlText =
-        """
-        <ul class="foods">
-            <li>apple</li>
-            <li>orange</li>
-            <li>cherry</li>
-        </ul>
-        """
-    let htmlNode = ( HtmlDocument.Parse htmlText ).Descendants ( ["ul"] )
-
-    let getName ( category:string , position:int) =
-
-        htmlNode
-        |> Seq.pick ( fun x ->
-            if x.HasClass category then
-                Some ( Seq.item position ( x.Elements () )
-                        |> (fun xe -> xe.InnerText () ) )
-            else
-                None )
-
-    getName ( "foods",1 ) |> printfn "%A"
 ```
+.  
+.  
 
+util function
+```fsharp
+let element name ``class`` node =
+        HtmlNode.name node = name && HtmlNode.attributeValue "class" node = ``class``
+```
+.  
+.  
+parse strings ( Parse is strings. Load is URL or File )
+```
+let HTML = HtmlDocument.Parse str
+```
+.  
+.  
+get target - tag
+```fsharp
+let targetTag = 
+    HTML 
+    |> HtmlDocument.descendants false ( element "div" "chat-item__content" ) |> Seq.exactlyOne
+targetTag |> printfn "%A"
+```
+result
+```html
+<div class="chat-item__content">
+    <div class="chat-item__details">
+    <div class="chat-item__from js-chat-item-from">callmekohei</div><div class="chat-item__username js-chat-item-from">@callmekohei</div><a class="chat-item__time js-chat-time" href="https://gitter.im/fsugjp/public?at=574842e5454cb2be094f813c">2016/05/26</a>
+    </div><div class="chat-item__text js-chat-item-text">Hello, world</div>
+</div>
+```
+.  
+.  
+structure of target div tag
+```fsharp
+targetTag
+|> HtmlNode.descendantsAndSelf true ( fun x -> true )
+|> Seq.map ( fun x -> HtmlNode.name x )
+|> Seq.filter ( fun x -> ( Seq.isEmpty >> not ) x )
+|> Seq.toList
+|> printfn "%A"
+```
+result
+```
+["div"; "div"; "div"; "div"; "a"; "div"]
+```
+.  
+.  
+a-tag's link address
+```fsharp
+targetTag
+|> HtmlNode.descendants true ( element "a" "chat-item__time js-chat-time" )
+|> Seq.map ( fun x -> HtmlNode.attributeValue "href" x )
+|> printfn "%A"
+```
+result
+```fsharp
+seq ["https://gitter.im/fsugjp/public?at=574842e5454cb2be094f813c"]
+```
+.  
+.  
+5th div tag's inner text
+```fsharp
+targetTag
+|> HtmlNode.descendants true ( element "div" "chat-item__text js-chat-item-text" )
+|> Seq.map ( fun x -> HtmlNode.innerText x )
+|> printfn "%A"
+```
+result
+```fsharp
+seq ["Hello, world"]
+```
 
