@@ -1,4 +1,4 @@
-####Fetch data
+###Fetch data
 System.Net
 ```fsharp
 module Test =
@@ -16,20 +16,12 @@ module Test =
 ```
 Http.RequestString
 ```fsharp
-let url = "http://www.aozora.gr.jp/index_pages/person81.html"
-let text = Http.RequestString (
-                url
-                , headers = [ UserAgent
-                    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_4)
-                    AppleWebKit/537.36 (KHTML, like Gecko)
-                    Chrome/49.0.2623.87 Safari/537.36" ]
-                , responseEncodingOverride = "utf-8" )
-
-let htmlDoc = HtmlDocument.Parse text
+let url = "https://gitter.im/fsugjp/public/archives/2015/06/01"
+let HTML = HtmlDocument.Parse ( Http.RequestString url )
 ```
 ---
 
-####Parse
+###Parse
 
 HTML
 ```html
@@ -42,96 +34,92 @@ HTML
 
         <div class="test"></div>
 
-        <div class="chat-item__content">
-            <div class="chat-item__details">
-                <div class="chat-item__from js-chat-item-from">callmekohei</div>
-                <div class="chat-item__username js-chat-item-from">@callmekohei</div>
-                <a class="chat-item__time js-chat-time" href="https://gitter.im/fsugjp/public?at=574842e5454cb2be094f813c">2016/05/26</a>
+        <div class="A" id="123" name="abc">
+            <div class="B">
+                <div class="C">callmekohei</div>
+                <div class="D">@callmekohei</div>
+                <a   class="E" title="Date">May 21 08:39</a>
             </div>
-            <div class="chat-item__text js-chat-item-text">Hello, world</div>
+            <div class="F" name="Greeting"> Hello, World! </div>
         </div>
 
     </body>
 </html>
 ```
-.  
-.  
-Library
+basic code
 ```
 open FSharp.Data
-```
-.  
-.  
 
-util function
-```fsharp
 let element name ``class`` node =
         HtmlNode.name node = name && HtmlNode.attributeValue "class" node = ``class``
-```
-.  
-.  
-parse strings ( Parse is strings. Load is URL or File )
-```
-let HTML = HtmlDocument.Parse str
-```
-.  
-.  
-get target - tag
-```fsharp
-let targetTag = 
-    HTML 
-    |> HtmlDocument.descendants false ( element "div" "chat-item__content" ) 
-    |> Seq.exactlyOne
 
-targetTag |> printfn "%A"
+let html = HtmlDocument.Parse HTML
+
+let nd = html |> HtmlDocument.descendants true ( element "div" "A" ) |> Seq.exactlyOne
 ```
 result
 ```html
-<div class="chat-item__content">
-    <div class="chat-item__details">
-    <div class="chat-item__from js-chat-item-from">callmekohei</div><div class="chat-item__username js-chat-item-from">@callmekohei</div><a class="chat-item__time js-chat-time" href="https://gitter.im/fsugjp/public?at=574842e5454cb2be094f813c">2016/05/26</a>
-    </div><div class="chat-item__text js-chat-item-text">Hello, world</div>
+<div class="A" id="123" name="abc">
+    <div class="B">
+        <div class="C">callmekohei</div>
+        <div class="D">@callmekohei</div>
+        <a   class="E" title="Date">May 21 08:39</a>
+    </div>
+    <div class="F" name="Greeting"> Hello, World! </div>
 </div>
 ```
 .  
 .  
-structure of target div tag
+
+---
+###FSharp.Data.HtmlNode method
+
+#####name
+```fsaharp
+nd |> fun x -> HtmlNode.name x |> printfn "%A" // "div"
+```
+
+#####Attribute
 ```fsharp
-targetTag
-|> HtmlNode.descendantsAndSelf true ( fun x -> true )
-|> Seq.map ( fun x -> HtmlNode.name x )
-|> Seq.filter ( fun x -> ( Seq.isEmpty >> not ) x )
-|> Seq.toList
-|> printfn "%A"
+nd |> fun x -> HtmlNode.attribute "class" x |> fun x -> x.Name ()  |> printfn "%A" // "class"
+nd |> fun x -> HtmlNode.attribute "class" x |> fun x -> x.Value () |> printfn "%A" // "A"
+nd |> fun x -> HtmlNode.attributeValue "class" x                   |> printfn "%A" // "A"
+nd |> fun x -> HtmlNode.attributes x |> Seq.map ( fun x -> HtmlAttribute.value  x )
+    |> printfn "%A" // seq ["A"; "123"; "abc"]
+nd |> fun x -> HtmlNode.tryGetAttribute "class" x                  |> printfn "%A" // Some FSharp.Data.HtmlAttribute
 ```
-result
-```
-["div"; "div"; "div"; "div"; "a"; "div"]
-```
-.  
-.  
-a-tag's link address
+
+#####Has
 ```fsharp
-targetTag
-|> HtmlNode.descendants true ( element "a" "chat-item__time js-chat-time" )
-|> Seq.map ( fun x -> HtmlNode.attributeValue "href" x )
-|> printfn "%A"
+nd |> fun x -> HtmlNode.hasAttribute "class" "A" x |> printfn "%A" // true
+nd |> fun x -> HtmlNode.hasClass     "A"         x |> printfn "%A" // true
+nd |> fun x -> HtmlNode.hasId        "123"       x |> printfn "%A" // true
+nd |> fun x -> HtmlNode.hasName      "<test>"    x |> printfn "%A" // false
 ```
-result
+
+#####Inner Text
 ```fsharp
-seq ["https://gitter.im/fsugjp/public?at=574842e5454cb2be094f813c"]
+nd |> fun x -> HtmlNode.innerText x                |> printfn "%A" // "callmekohei@callmekoheiMay 21 08:39 Hello, World! "
+nd |> fun x -> HtmlNode.innerTextExcluding ["a"] x |> printfn "%A" // "callmekohei@callmekohei Hello, World! "
 ```
-.  
-.  
-5th div tag's inner text
+
+#####Descendants
 ```fsharp
-targetTag
-|> HtmlNode.descendants true ( element "div" "chat-item__text js-chat-item-text" )
-|> Seq.map ( fun x -> HtmlNode.innerText x )
-|> printfn "%A"
+nd |> fun x -> HtmlNode.descendants                      true ( element "div" "F" ) x |> printfn "%A"
+nd |> fun x -> HtmlNode.descendantsWithPath              true ( element "div" "F")  x |> printfn "%A"
+nd |> fun x -> HtmlNode.descendantsNamed                 true ["a"] x                 |> printfn "%A"
+nd |> fun x -> HtmlNode.descendantsNamedWithPath         true ["a"] x                 |> printfn "%A"
+
+nd |> fun x -> HtmlNode.descendantsAndSelf               true ( element "div" "F" ) x |> printfn "%A"
+nd |> fun x -> HtmlNode.descendantsAndSelfWithPath       true ( element "div" "F" ) x |> printfn "%A"
+nd |> fun x -> HtmlNode.descendantsAndSelfNamed          true ["a"] x                 |> printfn "%A"
+nd |> fun x -> HtmlNode.descendantsAndSelfNamedWithPath  true ["a"] x                 |> printfn "%A"
 ```
-result
+
+#####Elements
 ```fsharp
-seq ["Hello, world"]
+nd |> fun x -> HtmlNode.elements x                |> printfn "%A" 
+nd |> fun x -> HtmlNode.elementsNamed ["a"] x     |> printfn "%A" // How to use?
 ```
+
 
