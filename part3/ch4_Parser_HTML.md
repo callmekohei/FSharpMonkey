@@ -47,7 +47,7 @@ HTML
 </html>
 ```
 basic code
-```
+```fsharp
 open FSharp.Data
 
 let element name ``class`` node =
