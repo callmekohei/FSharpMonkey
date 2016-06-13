@@ -91,10 +91,11 @@ let tupleToList t =
         else None
 
 let listToTuple l =
-    let l' = List.toArray l
-    let types = l' |> Array.map (fun o -> o.GetType())
+    let l' = l |> List.map ( fun x -> x:> obj ) 
+    let l'' = List.toArray l'
+    let types = l'' |> Array.map (fun o -> o.GetType())
     let tupleType = Microsoft.FSharp.Reflection.FSharpType.MakeTupleType types
-    Microsoft.FSharp.Reflection.FSharpValue.MakeTuple (l' , tupleType)
+    Microsoft.FSharp.Reflection.FSharpValue.MakeTuple ( l'' , tupleType) 
 ```
 
 ####Others
