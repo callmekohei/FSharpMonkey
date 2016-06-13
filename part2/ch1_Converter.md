@@ -75,7 +75,6 @@ It's little dangarous!!
 // [1; 'a'; "abc"]
 
 ['a';'b';'c']
-|> List.map box
 |> listToTuple
 |> printfn "%A"
 // ('a', 'b', 'c')
