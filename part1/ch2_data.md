@@ -121,6 +121,7 @@ Set [1..10] |> printfn "%A"
 `:?` is type checker with `box`.  
 `tuple`, `record` needs `FSharp.Reflection.FSharpType`.
 ```fsharp
+
 module TypeCheck =
     open FSharp.Reflection
 
@@ -138,18 +139,18 @@ module TypeCheck =
     let mp  = Map ["a",1; "b",2; "c",3]
     let st  = Set [1..10]
 
-    (box str)   :? string        |> printfn "%A" // true
-    (box num)   :? int           |> printfn "%A" // true
-    (box opt)   :? option<int>   |> printfn "%A" // true
-    (box kohei) :? Gender        |> printfn "%A" // true
+    (box str)   :? string          |> printfn "%A" // true
+    (box num)   :? int             |> printfn "%A" // true
+    (box opt)   :? option<int>     |> printfn "%A" // true
+    (box kohei) :? Gender          |> printfn "%A" // true
  
     FSharpType.IsRecord (rcd.GetType ()) |> printfn "%A" // true
     FSharpType.IsTuple  (tpl.GetType ()) |> printfn "%A" // true
 
-    (box arr) :? array<int>      |> printfn "%A" // true
-    (box lst) :? list<int>       |> printfn "%A" // true
-    (box sq)  :? seq<int>        |> printfn "%A" // true
-    (box mp)  :? Map<string,int> |> printfn "%A" // true
-    (box st)  :? Set<int>        |> printfn "%A" // true
+    (box arr)   :? array<int>      |> printfn "%A" // true
+    (box lst)   :? list<int>       |> printfn "%A" // true
+    (box sq)    :? seq<int>        |> printfn "%A" // true
+    (box mp)    :? Map<string,int> |> printfn "%A" // true
+    (box st)    :? Set<int>        |> printfn "%A" // true
 
 ```
