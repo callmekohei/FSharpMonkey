@@ -213,3 +213,28 @@ module FizzBuzz_Parallel =
     |> Async.RunSynchronously
     |> ignore
 ```
+
+### Event
+```fsharp
+let (|Div|_|) by n = if n % by = 0 then Some Div else None
+
+let fizzbuzz = function
+    | Div 15 -> "FizzBuzz"
+    | Div  5 -> "Buzz"
+    | Div  3 -> "Fizz"
+    | n      -> string n
+
+type FizzBuzz (func) =
+    
+    let e = Event<_>()
+    do
+        e.Publish
+        |> Observable.add func
+        |> ignore
+    
+    member this.Get(n) = e.Trigger(n)
+
+let fb = FizzBuzz(fizzbuzz >> printfn "%s")
+
+[1..15] |> List.iter ( fun n -> fb.Get n )
+```
