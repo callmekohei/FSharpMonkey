@@ -158,7 +158,9 @@ else
 /// world
 ```
 <br>
+
 # String
+
 ### verbatim string
 ```fsharp
 " \\n \"abc\" "  |> stdout.WriteLine  // \n "abc"
