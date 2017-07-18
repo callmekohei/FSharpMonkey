@@ -157,6 +157,7 @@ else
 
 /// world
 ```
+
 <br>
 
 # String
@@ -184,6 +185,7 @@ else
 // ABCDEFGHI
 ```
 <br>
+
 # Data
 
 ### Tuple and Record
@@ -222,6 +224,7 @@ Map.ofList["a",1; "b",2; "c",3] |> printfn "%A" // map [("a", 1); ("b", 2); ("c"
 Set [1..10] |> printfn "%A" // set [1; 2; 3; 4; 5; 6; 7; 8; 9; ...] 
 ```
 <br>
+
 # Function
 
 ### 2-ways expression of function
@@ -279,6 +282,7 @@ let rec say word i =
 // [2; 4; 6]
 ```
 <br>
+
 # Class
 
 ### Hierarchy of class
@@ -369,6 +373,7 @@ module Exaple_Override =
     // "Name is callmekohei"
 ```
 <br>
+
 # Computation
 
 ```fsharp
