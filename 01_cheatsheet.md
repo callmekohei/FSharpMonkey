@@ -42,8 +42,26 @@ true  |> printfn "%b" // true   b is bool.
 let callmekohei = 28
 callmekohei |> stdout.WriteLine       // 28
 
+// Double backtick makes name readable.
 let ``call me kohei`` = 28
 ``call me kohei`` |> stdout.WriteLine // 28
+
+// The apostrophe is often used to mardk values with
+// a slight modification from a previously existing one.
+let l = [ [1..10]; [10..100] ]
+l |> List.map ( fun l' -> l' |> List.map ( fun n -> n + 10 )
+```
+
+### Concise syntax
+`fun x -> x |> ` は省略できる？
+```fsharp
+let ll = [[1;2;3];[4;5;6];[7;8;9]]
+
+// 通常の書き方
+ll |> List.map ( fun l -> l |> List.map ( fun n -> n + 10 ) )
+
+// 省略した書き方
+ll |> List.map ( List.map ( fun n -> n + 10 ) )
 ```
 
 ### Constant, variable and container
